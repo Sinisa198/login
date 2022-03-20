@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="label"> User login</h1>
+        <form class="login-form" method="post" name="form" onsubmit="login(event)">
+          <div class="font">First and second name</div>
+          <input type="text" name="user">
+          <div class="font2">Password</div>
+          <input type="password" name="password">
+          <button type="submit">Login</button>
+          <p id="errorMsg" class="error-text" style="display: none">
+            Username and Password are required
+          </p>
+        </form>
+    </div>
+
+    <script>
+      
+
+      const errorMsg = document.getElementById('errorMsg');
+      
+      function login(e){
+        e.preventDefault();
+       
+        let username = document.forms['form']['user'].value; // ''
+        let password = document.forms['form']['password'].value;
+
+        console.log('username :', username);
+        console.log('pass :', password);
+
+        if(username == 'test' && password =='test') {
+
+          localStorage.logged = true;
+          localStorage.name = username;
+          window.location.href = "homepage.html"
+          return errorMsg.style.display = "none";
+        }
+
+        return errorMsg.style.display = "block";
+      }
+    </script>
+</body>
+</html>
+
+<style>
+  .error-text {
+    color: red;
+  }
+</style>

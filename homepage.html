@@ -1,0 +1,41 @@
+<div>
+  <h1 class="text1">
+    Welcome
+    <p id="username"></p>
+  </h1>
+
+  <button class='dugme'onclick="logout()">Logout</button>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // DOM ready for manipulation
+    document.getElementById("username").innerText = localStorage.name;
+  });
+
+  function logout() {
+    localStorage.logged = false;
+    window.location.href = "login.html";
+  }
+</script>
+<style>
+  
+  .text1{
+    font-size:50px;
+    color:green;
+    text-align:center;
+    margin-top:100px;
+
+  }
+  .dugme{
+    width: 200px;
+    height: 50px;
+    background-color:black;
+    color:white;
+    border-radius:10px;
+    border:2px solid red;
+    margin-left:577px;
+    margin-top:50px;
+
+  }
+</style>
